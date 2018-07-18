@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gupiao.mapper.QuoteTransDetailMapper" >
+	
+	<insert id="bathSaveQuoteDetail">
+		insert into quote_trans_detail (code,trans_time,begin_price,end_price,min_price,max_price,trans_count,trans_total,
+		change_price,change_percent,swing,turnover,weekday)  
+	    values 
+	    <foreach collection="list" item="item" index="index" separator="," > 
+	        (#{item.code},#{item.transTime},#{item.beginPrice},#{item.endPrice},#{item.minPrice}
+	        ,#{item.maxPrice},#{item.transCount},#{item.transTotal},#{item.changePrice}
+	        ,#{item.changePercent},#{item.swing},#{item.turnover},#{item.weekday}) 
+	    </foreach>
+	</insert>
+	
+</mapper>
